@@ -4,10 +4,11 @@
   "version": "1.0.0",
   "scripts": {
     "start": "expo start -c",
+    "build": "expo prebuild",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start -c --android",
+    "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start -c --web",
+    "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint"
   },
