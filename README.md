@@ -6,7 +6,7 @@ This is an Expo project created with `create-expo-app`.
 
 1. Clone this project:
 
-   ```npm
+   ```
    git clone https://github.com/SIAM-TheLegend/OpenLearn.git
    ```
 
@@ -18,7 +18,7 @@ This is an Expo project created with `create-expo-app`.
 
 3. Start the app
 
-   ```bash
+   ```
     npx expo start
    ```
 
@@ -26,7 +26,8 @@ You can start developing by editing the files inside the **app** directory. This
 
 ## Frameworks and Libraries used here:
 
-==> TailwindCSS (Nativewind)
+==> TailwindCSS  
+==> Nativewind  
 ==> React Native Reanimated
 
 ## Remainings
