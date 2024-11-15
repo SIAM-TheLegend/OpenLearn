@@ -1,50 +1,46 @@
-# Welcome to your Expo app 👋
+# Welcome to OpenLearn 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is an Expo project created with `create-expo-app`.
 
 ## Get started
 
-1. Install dependencies
+1. Clone this project:
 
-   ```bash
-   npm install
+   ```npm
+   git clone https://github.com/SIAM-TheLegend/OpenLearn.git
    ```
 
-2. Start the app
+2. Install dependencies
+
+   ```
+   npx expo install
+   ```
+
+3. Start the app
 
    ```bash
     npx expo start
    ```
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+## Frameworks and Libraries used here:
 
-When you're ready, run:
+==> TailwindCSS (Nativewind)
+==> React Native Reanimated
 
-```bash
-npm run reset-project
-```
+## Remainings
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+# Install Firebase
 
-## Learn more
+npm install firebase@10.8.0
 
-To learn more about developing your project with Expo, look at the following resources:
+# Install additional Expo packages
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+npm install @react-native-async-storage/async-storage@1.21.0
+npm install expo-auth-session@~5.4.0
+npm install expo-random@~13.6.0
 
-## Join the community
+# Install utility packages for styling
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+npm install clsx tailwind-merge
