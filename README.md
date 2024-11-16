@@ -33,72 +33,80 @@ You can start developing by editing the files inside the **app** directory. This
 ## Project Structure
 
 ```
-english-learning-app/
-├── app/
-│   ├── (auth)/
-│   │   ├── login.js
-│   │   ├── register.js
-│   │   └── forgot-password.js
-│   ├── (tabs)/
-│   │   ├── _layout.js
-│   │   ├── index.js
-│   │   ├── dashboard.js
-│   │   └── settings.js
-│   ├── lessons/
-│   │   ├── [id].js
-│   │   └── index.js
-│   ├── map/
-│   │   └── index.js
-│   ├── chat/
-│   │   ├── [userId].js
-│   │   └── index.js
-│   └── _layout.js
+📦OpenLearn/
+├── 📂 app/
+│   ├── 📂 (auth)/
+│   │   ├── 📄 login.js
+│   │   ├── 📄 register.js
+│   │   └── 📄 forgot-password.js
+│   ├── 📂 (tabs)/
+│   │   ├── 📄 _layout.js
+│   │   ├── 📄 index.js
+│   │   ├── 📄 dashboard.js
+│   │   └── 📄 settings.js
+│   ├── 📂 lessons/
+│   │   ├── 📄 [id].js
+│   │   └── 📄 index.js
+│   ├── 📂 map/
+│   │   └── 📄 index.js
+│   ├── 📂 chat/
+│   │   ├── 📄 [userId].js
+│   │   └── 📄 index.js
+│   └── 📄 _layout.js
 │
-├── components/
-│   ├── auth/
-│   │   ├── AuthProvider.js
-│   │   └── useAuth.js
-│   ├── lessons/
-│   │   ├── LessonCard.js
-│   │   ├── Quiz.js
-│   │   └── Progress.js
-│   ├── map/
-│   │   ├── UserMarker.js
-│   │   └── NearbyUsers.js
-│   ├── dashboard/
-│   │   ├── ProgressChart.js
-│   │   ├── ActivityFeed.js
-│   │   └── Achievements.js
-│   └── common/
-│       ├── Button.js
-│       ├── Card.js
-│       └── Loading.js
+├── 📂 components/
+│   ├── 📂 auth/
+│   │   ├── 📄 AuthProvider.js
+│   │   └── 📄 useAuth.js
+│   ├── 📂 lessons/
+│   │   ├── 📄 LessonCard.js
+│   │   ├── 📄 Quiz.js
+│   │   └── 📄 Progress.js
+│   ├── 📂 map/
+│   │   ├── 📄 UserMarker.js
+│   │   └── 📄 NearbyUsers.js
+│   ├── 📂 dashboard/
+│   │   ├── 📄 ProgressChart.js
+│   │   ├── 📄 ActivityFeed.js
+│   │   └── 📄 Achievements.js
+│   └── 📂 common/
+│       ├── 📄 Button.js
+│       ├── 📄 Card.js
+│       └── 📄 Loading.js
 │
-├── constants/
-│   ├── Colors.js
-│   ├── Layout.js
-│   └── Config.js
+├── 📂 constants/
+│   ├── 📄 Colors.js
+│   ├── 📄 Layout.js
+│   └── 📄 Config.js
 │
-├── services/
-│   ├── api.js
-│   ├── auth.js
-│   ├── firebase.js
-│   ├── location.js
-│   ├── stripe.js
-│   └── socket.js
+├── 📂 services/
+│   ├── 📄 api.js
+│   ├── 📄 auth.js
+│   ├── 📄 firebase.js
+│   ├── 📄 location.js
+│   ├── 📄 stripe.js
+│   └── 📄 socket.js
 │
-├── hooks/
-│   ├── useLocation.js
-│   ├── useNearbyUsers.js
-│   └── useUserProgress.js
+├── 📂 hooks/
+│   ├── 📄 useLocation.js
+│   ├── 📄 useNearbyUsers.js
+│   └── 📄 useUserProgress.js
 │
-├── context/
-│   ├── AuthContext.js
-│   └── ProgressContext.js
+├── 📂 context/
+│   ├── 📄 AuthContext.js
+│   └── 📄 ProgressContext.js
 │
-└── assets/
-    ├── images/
-    └── animations/
+├── 📂 assets/
+│   ├── 📂 images/
+│   ├── 📂 animations/
+│   └── 📂 fonts/
+│
+├── 📄 app.json
+├── 📄 metro.config.js
+├── 📄 package.json
+├── 📄 package-lock.json
+├── 📄 tailwind.config.js
+└── 📄 tsconfig.json
 ```
 
 ## Key Features & Implementation Details
@@ -214,4 +222,59 @@ english-learning-app/
   messages: Array,
   createdAt: timestamp
 }
+```
+
+# Visual Structure
+
+```mermaid
+flowchart TD
+    Start([App Launch]) --> Auth{Authenticated?}
+
+    %% Authentication Flow
+    Auth -->|No| Login[Login Page]
+    Login -->|Google/Email| AuthProcess[Authentication Process]
+    AuthProcess -->|First Time| Onboarding[Onboarding Screens]
+    AuthProcess -->|Returning| MainNav
+    Onboarding --> MainNav
+    Auth -->|Yes| MainNav
+
+    %% Main Navigation Hub
+    MainNav{Main Navigation}
+
+    %% Home Page Structure
+    MainNav -->|1| Home[Home Page]
+    Home --> Map[Map Feature]
+    Map --> NearbyUsers[View Nearby Users]
+    NearbyUsers --> Message[Send Messages]
+    Home --> Modules[Learning Modules]
+    Home --> Quizzes[Interactive Quizzes]
+    Home --> Challenges[Daily Challenges]
+    Home --> Leaderboard[Leaderboards]
+
+    %% Dashboard Structure
+    MainNav -->|2| Dashboard[Dashboard Page]
+    Dashboard --> Statistics[User Analytics]
+    Dashboard --> Progress[Progress Charts]
+    Dashboard --> Streak[Daily Streak]
+    Dashboard --> Badges[Earned Badges]
+
+    %% Settings Structure
+    MainNav -->|3| Settings[Settings Page]
+    Settings --> Profile[Profile Management]
+    Settings --> UpgradePlan[Plan Upgrades]
+    UpgradePlan --> Stripe[Stripe Payment]
+    Settings --> Preferences[Language Preferences]
+    Settings --> Notifications[Notification Settings]
+
+    %% Styling
+    classDef primary fill:teal,color:black,stroke:#333,stroke-width:2px,stroke-dasharray: 2 2
+    classDef secondary fill:darkgreen,color:black,stroke:#333,stroke-width:2px
+    classDef action fill:blueviolet,stroke:#333,stroke-width:2px
+    classDef nav fill:gray,stroke:#333,stroke-width:3px
+
+    class Home,Dashboard,Settings primary
+    class Map,Modules,Quizzes,Challenges,Leaderboard secondary
+    class Message,Stripe action
+    class MainNav nav
+
 ```

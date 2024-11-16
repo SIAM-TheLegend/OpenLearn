@@ -1,0 +1,49 @@
+flowchart TD
+    Start([App Launch]) --> Auth{Authenticated?}
+    
+    %% Authentication Flow
+    Auth -->|No| Login[Login Page]
+    Login -->|Google/Email| AuthProcess[Authentication Process]
+    AuthProcess -->|First Time| Onboarding[Onboarding Screens]
+    AuthProcess -->|Returning| MainNav
+    Onboarding --> MainNav
+    Auth -->|Yes| MainNav
+    
+    %% Main Navigation Hub
+    MainNav{Main Navigation}
+    
+    %% Home Page Structure
+    MainNav -->|1| Home[Home Page]
+    Home --> Map[Map Feature]
+    Map --> NearbyUsers[View Nearby Users]
+    NearbyUsers --> Message[Send Messages]
+    Home --> Modules[Learning Modules]
+    Home --> Quizzes[Interactive Quizzes]
+    Home --> Challenges[Daily Challenges]
+    Home --> Leaderboard[Leaderboards]
+    
+    %% Dashboard Structure
+    MainNav -->|2| Dashboard[Dashboard Page]
+    Dashboard --> Statistics[User Analytics]
+    Dashboard --> Progress[Progress Charts]
+    Dashboard --> Streak[Daily Streak]
+    Dashboard --> Badges[Earned Badges]
+    
+    %% Settings Structure
+    MainNav -->|3| Settings[Settings Page]
+    Settings --> Profile[Profile Management]
+    Settings --> UpgradePlan[Plan Upgrades]
+    UpgradePlan --> Stripe[Stripe Payment]
+    Settings --> Preferences[Language Preferences]
+    Settings --> Notifications[Notification Settings]
+    
+    %% Styling
+    classDef primary fill:#a2d2ff,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+    classDef secondary fill:#bde0fe,stroke:#333,stroke-width:2px
+    classDef action fill:#ffafcc,stroke:#333,stroke-width:2px
+    classDef nav fill:#ffd7ba,stroke:#333,stroke-width:3px
+    
+    class Home,Dashboard,Settings primary
+    class Map,Modules,Quizzes,Challenges,Leaderboard secondary
+    class Message,Stripe action
+    class MainNav nav
