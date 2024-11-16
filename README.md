@@ -242,39 +242,55 @@ flowchart TD
     MainNav{Main Navigation}
 
     %% Home Page Structure
-    MainNav -->|1| Home[Home Page]
+    MainNav -->|Landing Page| Home[Home Page]
     Home --> Map[Map Feature]
     Map --> NearbyUsers[View Nearby Users]
-    NearbyUsers --> Message[Send Messages]
+    Map --> Message[Send Messages]
+    Map --> Talk[Live Talking]
+    Talk --> Muted[Muted]
     Home --> Modules[Learning Modules]
+    Modules --> WeeklyModules[Weekly]
     Home --> Quizzes[Interactive Quizzes]
     Home --> Challenges[Daily Challenges]
+    Challenges --> LearnNewWords[Learn New Words]
     Home --> Leaderboard[Leaderboards]
+    Leaderboard --> Regional[Regional]
+    Leaderboard --> Global[Global]
 
     %% Dashboard Structure
-    MainNav -->|2| Dashboard[Dashboard Page]
+    MainNav -->|Tab| Dashboard[Dashboard Page]
     Dashboard --> Statistics[User Analytics]
+    Statistics --> WeeklyAnalytics[Weekly]
+    Statistics --> MonthlyAnalytics[Monthly]
     Dashboard --> Progress[Progress Charts]
-    Dashboard --> Streak[Daily Streak]
+    Dashboard --> Streak[Streak]
+    Streak --> DailyStreak[Daily]
+    Streak --> WeeklyStreak[Weekly]
     Dashboard --> Badges[Earned Badges]
+    Badges --> Newbie[Newbie]
+    Badges --> Intermediate[Intermediate]
+    Badges --> Professional[Professional]
 
     %% Settings Structure
-    MainNav -->|3| Settings[Settings Page]
+    MainNav -->|Tab| Settings[Settings Page]
     Settings --> Profile[Profile Management]
-    Settings --> UpgradePlan[Plan Upgrades]
-    UpgradePlan --> Stripe[Stripe Payment]
+    Settings --> Plans[Plans]
+    Plans --> FreeTier[Free Plan]
+    Plans --> PremiumTier[Premium Plan]
+    PremiumTier --> Stripe[Stripe Payment]
     Settings --> Preferences[Language Preferences]
+    Preferences --> English[English]
     Settings --> Notifications[Notification Settings]
 
     %% Styling
     classDef primary fill:teal,color:black,stroke:#333,stroke-width:2px,stroke-dasharray: 2 2
-    classDef secondary fill:darkgreen,color:black,stroke:#333,stroke-width:2px
-    classDef action fill:blueviolet,stroke:#333,stroke-width:2px
-    classDef nav fill:gray,stroke:#333,stroke-width:3px
+    classDef secondary fill:lightgreen,color:black,stroke:#333,stroke-width:2px
+    classDef action fill:skyblue,color:black,stroke:#333,stroke-width:2px
+    classDef nav fill:darkgray,color:black,stroke:#333,stroke-width:3px
 
     class Home,Dashboard,Settings primary
-    class Map,Modules,Quizzes,Challenges,Leaderboard secondary
-    class Message,Stripe action
+    class Map,Modules,Quizzes,Challenges,Leaderboard,Statistics,Progress,Streak,Badges,Profile,Plans,Preferences,Notifications secondary
+    class NearbyUsers,Regional,Global,Newbie,Intermediate,Professional,FreeTier,PremiumTier,English,DailyStreak,WeeklyStreak,WeeklyAnalytics,MonthlyAnalytics,LearnNewWords,WeeklyModules,Message,Talk action
     class MainNav nav
 
 ```
